@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:animateLayoutChanges="true"
-    android:background="#e5e5e5">
+    android:background="#3498db"
+    android:weightSum="1">
 
     <TextView
         android:id="@+id/txtState"
@@ -13,7 +14,7 @@
         android:gravity="center_horizontal"
         android:layout_height="wrap_content"
         android:text=""
-        android:textColor="#FFAAAAAA"
+        android:textColor="#ffffffff"
         android:fontFamily="sans-serif-condensed"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -25,25 +26,20 @@
         android:indeterminate="true"
         android:visibility="gone"/>
 
-    <ImageView
-        android:id="@+id/imgLogoShop"
-        android:layout_height="60dp"
-        android:layout_width="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
-        android:src="@drawable/logo_example"
-        android:contentDescription="Logo"/>
-
     <ListView
         android:id="@+id/cardListView" 
        	android:layout_marginLeft="16dp"
    		android:layout_marginRight="16dp"
         android:layout_width="fill_parent"
-        android:layout_height="218dp"
+        android:layout_height="141dp"
         android:divider="@null"
         android:dividerHeight="10dp">
     </ListView>
 
-    
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listView" />
+
+
 </LinearLayout>

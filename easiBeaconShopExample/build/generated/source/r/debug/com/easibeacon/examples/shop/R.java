@@ -27,14 +27,15 @@ public final class R {
         public static final int offer2=0x7f020009;
         public static final int offer3=0x7f02000a;
         public static final int offer4=0x7f02000b;
+        public static final int travelr=0x7f02000c;
     }
     public static final class id {
         public static final int RelativeLayout3=0x7f080007;
         public static final int barLoadProductImage=0x7f080004;
         public static final int barSearchBeacons=0x7f080001;
-        public static final int cardListView=0x7f080003;
-        public static final int imgLogoShop=0x7f080002;
+        public static final int cardListView=0x7f080002;
         public static final int imgProduct=0x7f080005;
+        public static final int listView=0x7f080003;
         public static final int mnuScan=0x7f08000b;
         public static final int txtOfferBig=0x7f080008;
         public static final int txtOfferInfo=0x7f08000a;

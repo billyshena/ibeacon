@@ -7,7 +7,7 @@
     <!-- From: file:/Users/bshen/Desktop/Travelr1/easiBeaconShopExample/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="action_scan">Scan</string>
-    <string name="app_name">Shop Example</string>
+    <string name="app_name">TRAVELR</string>
     <string name="msg_downloading_offers">Downloading offer data…</string>
     <string name="msg_no_ibeacons_found">No nearby offers.</string>
     <string name="msg_no_internet_connection">Cannot connect to the Internet</string>

@@ -21,28 +21,35 @@
 
 package com.easibeacon.examples.shop;
 
-import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
-
-import com.easibeacon.examples.shop.util.OffersArrayAdapter;
-import com.easibeacon.examples.shop.protocol.IBeacon;
-import com.easibeacon.examples.shop.protocol.IBeaconListener;
-import com.easibeacon.examples.shop.protocol.IBeaconProtocol;
-import com.easibeacon.examples.shop.protocol.Utils;
-import com.easibeacon.examples.shop.R;
-
-import android.os.Bundle;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
+import android.location.Location;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.easibeacon.examples.shop.protocol.IBeacon;
+import com.easibeacon.examples.shop.protocol.IBeaconListener;
+import com.easibeacon.examples.shop.protocol.IBeaconProtocol;
+import com.easibeacon.examples.shop.protocol.Utils;
+import com.easibeacon.examples.shop.util.OffersArrayAdapter;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends Activity implements IBeaconListener{
 	
@@ -51,10 +58,11 @@ public class MainActivity extends Activity implements IBeaconListener{
 	private IBeaconProtocol ibp;
 	private OffersArrayAdapter arrayAdapter;
 	private static ArrayList<Offer> _offers;
-	
+	private GPSTracker gps;
 	private ProgressBar _barSearchBeacons;
 	private TextView _txtState;
-	
+	private float distance;
+    private ListView lv;
 	// Configure here your sample UUID
 	public static final byte[] UUID = {(byte)0xA7,(byte)0xAE,(byte)0x2E,(byte)0xB7,(byte)0x1F,(byte)0x00,(byte)0x41,(byte)0x68,(byte)0xB9,(byte)0x9B,(byte)0xA7,(byte)0x49,(byte)0xBA,(byte)0xC1,(byte)0xCA,(byte)0x64};
     public static final byte[] AUUID = {(byte)0xB1,(byte)0x6D,(byte)0x55,(byte)0xF9,(byte)0x60,(byte)0x04,(byte)0x4A,(byte)0x6F,(byte)0xA5,(byte)0x53,(byte)0x98,(byte)0x68,(byte)0xB3,(byte)0xD7,(byte)0xE7,(byte)0x76};
@@ -70,7 +78,7 @@ public class MainActivity extends Activity implements IBeaconListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_listview);
-		
+
 		if(_offers == null)
 			_offers = new ArrayList<Offer>();
 
@@ -172,7 +180,60 @@ public class MainActivity extends Activity implements IBeaconListener{
 					//_offers.clear();
 					arrayAdapter.notifyDataSetChanged();
                     Log.i("NOTHING", "FOUND");
-				}
+
+
+                    // Get the JSON file as a String
+                    String json = loadJSONFromAsset();
+                    // create class object
+                    gps = new GPSTracker(MainActivity.this);
+
+                    lv = (ListView) findViewById(R.id.listView);
+
+                    // check if GPS enabled
+                    if(gps.canGetLocation()){
+
+                        double latitude = gps.getLatitude();
+                        double longitude = gps.getLongitude();
+
+                        //Print JSON Object
+                        try {
+                            List<String> results = new ArrayList<String>();
+                            JSONObject jsonObject = new JSONObject(json);
+                            JSONArray jsonArray = jsonObject.getJSONArray("monuments");
+                            Location myPosition = new Location("a");
+                            myPosition.setLatitude(latitude);
+                            myPosition.setLongitude(longitude);
+                            Location monumentLoc = new Location("b");
+
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject monumentObject = jsonArray.getJSONObject(i);
+                                monumentLoc.setLatitude(monumentObject.getDouble("latitude"));
+                                monumentLoc.setLongitude(monumentObject.getDouble("longitude"));
+                                distance = myPosition.distanceTo(monumentLoc);
+                                results.add(monumentObject.getString("name") + " " + "(" + distance / 1000 + ")");
+
+                                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                                        getApplicationContext(),
+                                        android.R.layout.simple_list_item_1,
+                                        results );
+                                lv.setAdapter(arrayAdapter);
+                            }
+                        } catch (Throwable t) {
+                            Log.e("My App", "Could not parse malformed JSON: \"" + json);
+                        }
+
+                        // \n is for new line
+                        //Toast.makeText(getApplicationContext(), "Your JSON FILE " + json, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
+                    }else{
+                        // can't get location
+                        // GPS or Network is not enabled
+                        // Ask user to enable GPS/network in settings
+                        gps.showSettingsAlert();
+                    }
+
+
+                }
 			}
 		});
 	}
@@ -210,7 +271,34 @@ public class MainActivity extends Activity implements IBeaconListener{
 	@Override
 	public void operationError(int status) {
 		Log.i("EasiShop example", "Bluetooth error: " + status);	
-	}		
+	}
+
+
+    // Function that is reading the monuments.js JSON file
+    public String loadJSONFromAsset() {
+        String json = null;
+        try {
+
+            InputStream is = getAssets().open("monuments.js");
+
+            int size = is.available();
+
+            byte[] buffer = new byte[size];
+
+            is.read(buffer);
+
+            is.close();
+
+            json = new String(buffer, "UTF-8");
+
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
+
+    }
 
 }	
 
