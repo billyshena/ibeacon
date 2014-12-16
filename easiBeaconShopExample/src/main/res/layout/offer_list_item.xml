@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+	
+    
+ 		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" 
+			android:layout_marginLeft="6dp"
+			android:layout_marginRight="6dp"
+			android:layout_marginTop="4dp"
+			android:layout_marginBottom="4dp"
+			android:padding="0dp"
+			android:orientation="vertical"
+			android:background="@drawable/background_card">
+
+			<ProgressBar
+			    android:id="@+id/barLoadProductImage"
+			    android:layout_gravity="center_horizontal"
+			    android:layout_width="40dp"
+			    android:layout_height="140dp"/>
+
+		<ImageView
+		    android:id="@+id/imgProduct"
+		    android:layout_width="fill_parent"
+		    android:layout_height="140dp"
+		    android:src="@drawable/offer4"
+		    android:scaleType="centerInside"
+			android:padding="6dp"
+		    android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/txtProductDescription"
+            android:layout_marginTop="4dp"
+            android:layout_width="match_parent"
+			android:padding="6dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:fontFamily="sans-serif-light"/>
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="#40AF40"
+        android:padding="6dp" >
+
+        <TextView
+            android:id="@+id/txtOfferBig"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="20"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:includeFontPadding="false"
+            android:textColor="#FFFFFFFF"
+ 			android:fontFamily="sans-serif-light"
+            android:textSize="60sp" />
+
+        <TextView
+            android:id="@+id/txtOfferMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:layout_toRightOf="@id/txtOfferBig"
+            android:text="% off buying two pairs"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+			android:fontFamily="sans-serif-light"
+            android:textColor="#FFFFFFFF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtOfferInfo"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@id/txtOfferBig"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="this offer will expire in 2 days"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+			android:fontFamily="sans-serif"
+            android:textColor="#FFEEEEEE" />
+
+     </RelativeLayout>
+	</LinearLayout>
+
+
+ 		
+</FrameLayout>

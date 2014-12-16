@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/bshen/Desktop/Travelr1/easiBeaconShopExample/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- From: file:/Users/bshen/Desktop/Travelr1/easiBeaconShopExample/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="action_scan">Scan</string>
+    <string name="app_name">Shop Example</string>
+    <string name="msg_downloading_offers">Downloading offer data…</string>
+    <string name="msg_no_ibeacons_found">No nearby offers.</string>
+    <string name="msg_no_internet_connection">Cannot connect to the Internet</string>
+    <string name="msg_offers_displayed">Offers found.</string>
+    <string name="msg_searching_ibeacons">Discovering nearby offers…</string>
+    <!-- From: file:/Users/bshen/Desktop/Travelr1/easiBeaconShopExample/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+</resources>

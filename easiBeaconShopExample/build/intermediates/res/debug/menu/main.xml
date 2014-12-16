@@ -1,0 +1,5 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/mnuScan" android:title="@string/action_scan" android:showAsAction="always" android:icon="@drawable/ic_action_refresh"></item>
+
+</menu>
+<!-- From: file:/Users/bshen/Desktop/Travelr1/easiBeaconShopExample/src/main/res/menu/main.xml -->
