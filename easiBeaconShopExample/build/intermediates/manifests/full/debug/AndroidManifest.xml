@@ -30,6 +30,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.easibeacon.examples.shop.MonumentActivity"
+            android:screenOrientation="portrait" />
 
         <service
             android:name="com.radiusnetworks.ibeacon.service.IBeaconService"

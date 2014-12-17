@@ -30,7 +30,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         
-    </activity>  
+    </activity>
+
+        <activity
+            android:name=".MonumentActivity"
+            android:screenOrientation="portrait" />
     
         <service android:enabled="true"
         android:exported="true"

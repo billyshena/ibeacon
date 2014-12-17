@@ -43,7 +43,6 @@ import android.widget.Toast;
 import com.easibeacon.examples.shop.protocol.IBeacon;
 import com.easibeacon.examples.shop.protocol.IBeaconListener;
 import com.easibeacon.examples.shop.protocol.IBeaconProtocol;
-import com.easibeacon.examples.shop.protocol.Utils;
 import com.easibeacon.examples.shop.util.OffersArrayAdapter;
 
 import org.json.JSONArray;
@@ -75,21 +74,14 @@ public class MainActivity extends Activity implements IBeaconListener{
     public static final byte[] CUUID = {(byte)0xB7,(byte)0x25,(byte)0xBF,(byte)0xBF,(byte)0xF8,(byte)0x07,(byte)0x4B,(byte)0xC2,(byte)0x88,(byte)0x67,(byte)0x8E,(byte)0x09,(byte)0xBF,(byte)0xBC,(byte)0x66,(byte)0x6F};
     public static final byte[] DUUID = {(byte)0x21,(byte)0x19,(byte)0xE9,(byte)0xA3,(byte)0xA1,(byte)0x37,(byte)0x46,(byte)0xD7,(byte)0xAD,(byte)0xC9,(byte)0xDA,(byte)0x88,(byte)0xFB,(byte)0x24,(byte)0x2E,(byte)0x8B};
 	// Configure the UUID, major an minor of your sample easiBeacons 
-	private IBeacon _sampleIBeacon1 = new IBeacon(CUUID, 1, 1);
-	private IBeacon _sampleIBeacon2 = new IBeacon(AUUID, 1, 1);
-	private IBeacon _sampleIBeacon3 = new IBeacon(BUUID, 1, 1);
-    private IBeacon _sampleIBeacon4 = new IBeacon(DUUID, 1, 1);
+	private IBeacon _sampleIBeacon1 = new IBeacon(BUUID, 1, 1);
+	private IBeacon _sampleIBeacon2 = new IBeacon(BUUID, 2, 1);
+	private IBeacon _sampleIBeacon3 = new IBeacon(BUUID, 3, 1);
+    private IBeacon _sampleIBeacon4 = new IBeacon(BUUID, 4, 1);
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_listview);
-
-        // NOTIF
-
-
-        Log.d("DONE", "HERE");
-
-        //END NOTIF
 
 		if(_offers == null)
 			_offers = new ArrayList<Offer>();
@@ -118,7 +110,7 @@ public class MainActivity extends Activity implements IBeaconListener{
 			}
 		};	
 		Timer timer = new Timer();
-		timer.scheduleAtFixedRate(searchIbeaconTask, 1000, 10000);
+		timer.scheduleAtFixedRate(searchIbeaconTask, 1000, 5000);
 		
 	}
 
@@ -146,11 +138,11 @@ public class MainActivity extends Activity implements IBeaconListener{
 	
 	private void scanBeacons(){
 		// Check Bluetooth every time
-		Log.i(Utils.LOG_TAG,"Scanning");
+
 		ibp = IBeaconProtocol.getInstance(this);
 		
 		// Filter based on default easiBeacon UUID, remove if not required
-		//ibp.setScanUUID(UUID);
+		ibp.setScanUUID(BUUID);
 
 		if(!IBeaconProtocol.configureBluetoothAdapter(this)){
 			Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
@@ -238,27 +230,6 @@ public class MainActivity extends Activity implements IBeaconListener{
                                     Toast.makeText(getApplicationContext(), "This is a text where name= " +itemName, Toast.LENGTH_SHORT).show();
 
 
-                                    NotificationCompat.Builder mBuilder =
-                                            new NotificationCompat.Builder(getApplicationContext())
-                                                    .setSmallIcon(R.drawable.notification)
-                                                    .setContentTitle("TRAVELR")
-                                                    .setContentText("Hello World!");
-
-                                    Intent resultIntent = new Intent(getApplicationContext(), MapsActivity.class);
-
-                                    PendingIntent resultPendingIntent =
-                                            PendingIntent.getActivity(
-                                                    getApplicationContext(),
-                                                    0,
-                                                    resultIntent,
-                                                    PendingIntent.FLAG_UPDATE_CURRENT
-                                            );
-                                    mBuilder.setContentIntent(resultPendingIntent);
-
-                                    int mNotificationId = 001;
-                                    NotificationManager mNotifyMgr =
-                                            (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                                    mNotifyMgr.notify(mNotificationId, mBuilder.build());
                                 }
                             });
                         } catch (Throwable t) {
@@ -281,15 +252,19 @@ public class MainActivity extends Activity implements IBeaconListener{
 		Log.i("Shop","Enter region: " + ibeacon.toString());
 		_offers.clear();
 		if(ibeacon.isSameRegionAs(_sampleIBeacon1)){
+            createNotification("Tour eiffel", "Voir plus d'informations", "1");
 			_offers.add(Offer.getSampleOffer1());
 		}else if(ibeacon.isSameRegionAs(_sampleIBeacon2)){
+            createNotification("Musée du Louvre", "Voir plus d'informations", "2");
 			_offers.add(Offer.getSampleOffer2());
 		}else if(ibeacon.isSameRegionAs(_sampleIBeacon3)){
+            createNotification("Sacré coeur", "Voir plus d'informations", "3");
 			_offers.add(Offer.getSampleOffer3());
 		}else if(ibeacon.isSameRegionAs(_sampleIBeacon4)) {
+            createNotification("Invalides", "Voir plus d'informations", "4");
             _offers.add(Offer.getSampleOffer3());
         }
-		arrayAdapter.notifyDataSetChanged();		
+
 	}
 	
 	@Override
@@ -336,6 +311,33 @@ public class MainActivity extends Activity implements IBeaconListener{
         }
         return json;
 
+    }
+
+
+
+    public void createNotification(String title, String content, String monumentId){
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(getApplicationContext())
+                        .setSmallIcon(R.drawable.notification)
+                        .setContentTitle(title)
+                        .setContentText(content);
+
+        Intent resultIntent = new Intent(getApplicationContext(), MonumentActivity.class);
+        Log.i("Monument", monumentId);
+        resultIntent.putExtra("id", monumentId);
+        PendingIntent resultPendingIntent =
+                PendingIntent.getActivity(
+                        getApplicationContext(),
+                        0,
+                        resultIntent,
+                        PendingIntent.FLAG_UPDATE_CURRENT
+                );
+        mBuilder.setContentIntent(resultPendingIntent);
+
+        NotificationManager mNotifyMgr =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        mNotifyMgr.notify(Integer.parseInt(monumentId), mBuilder.build());
+        arrayAdapter.notifyDataSetChanged();
     }
 
 
