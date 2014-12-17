@@ -252,16 +252,16 @@ public class MainActivity extends Activity implements IBeaconListener{
 		_offers.clear();
 		if(ibeacon.isSameRegionAs(_sampleIBeacon1)){
             createNotification("Tour eiffel", "Voir plus d'informations", "1");
-			_offers.add(Offer.getSampleOffer1());
+			//_offers.add(Offer.getSampleOffer1());
 		}else if(ibeacon.isSameRegionAs(_sampleIBeacon2)){
             createNotification("Musée du Louvre", "Voir plus d'informations", "2");
-			_offers.add(Offer.getSampleOffer2());
+			//_offers.add(Offer.getSampleOffer2());
 		}else if(ibeacon.isSameRegionAs(_sampleIBeacon3)){
             createNotification("Sacré coeur", "Voir plus d'informations", "3");
-			_offers.add(Offer.getSampleOffer3());
+			//_offers.add(Offer.getSampleOffer3());
 		}else if(ibeacon.isSameRegionAs(_sampleIBeacon4)) {
             createNotification("Invalides", "Voir plus d'informations", "4");
-            _offers.add(Offer.getSampleOffer3());
+            //_offers.add(Offer.getSampleOffer3());
         }
 
 	}

@@ -2,6 +2,7 @@ package com.easibeacon.examples.shop;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -26,29 +27,24 @@ public class MonumentActivity extends Activity {
         Bundle extras = getIntent().getExtras();
         img = (ImageView)findViewById(R.id.imageView);
         txt = (TextView)findViewById(R.id.textView);
+        txt.setMovementMethod(new ScrollingMovementMethod());
         //img.setImageResource(R.drawable.pariss);
         int id = Integer.parseInt(extras.getString("id")) - 1;
 
         // Get the JSON file as a String
         String json = loadJSONFromAsset();
+
+        // Image string to set as a Drawable
+        String image = "";
+
         try{
             JSONObject jsonObject = new JSONObject(json);
             JSONArray jsonArray = jsonObject.getJSONArray("monuments");
             JSONObject result = jsonArray.getJSONObject(id);
-
+            image = result.getString("img");
+            int resourceId = getResources().getIdentifier(image, "drawable", "com.easibeacon.examples.shop");
+            img.setImageResource(resourceId);
             txt.setText(result.getString("content"));
-            if(id == 0){
-                img.setImageResource(R.drawable.pariss);
-            }
-            else if(id == 1){
-                img.setImageResource(R.drawable.louvre);
-            }
-            else if(id == 2){
-                img.setImageResource(R.drawable.sacre);
-            }
-            else if(id == 3){
-                img.setImageResource(R.drawable.invalides);
-            }
         }catch (Throwable t) {
             Log.e("My App", "Could not parse malformed JSON: \"" + json);
         }
