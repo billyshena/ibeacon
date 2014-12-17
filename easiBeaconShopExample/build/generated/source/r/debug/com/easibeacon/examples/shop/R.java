@@ -428,13 +428,14 @@ containing a value of this type.
         public static final int travelr=0x7f020032;
     }
     public static final class id {
-        public static final int RelativeLayout3=0x7f0b0023;
+        public static final int RelativeLayout3=0x7f0b0024;
         public static final int adjust_height=0x7f0b0000;
         public static final int adjust_width=0x7f0b0001;
-        public static final int barLoadProductImage=0x7f0b0020;
+        public static final int barLoadProductImage=0x7f0b0021;
         public static final int barSearchBeacons=0x7f0b0018;
         public static final int book_now=0x7f0b0010;
         public static final int button=0x7f0b001d;
+        public static final int button2=0x7f0b0020;
         public static final int buyButton=0x7f0b000c;
         public static final int buy_now=0x7f0b0011;
         public static final int buy_with_google=0x7f0b0012;
@@ -447,11 +448,11 @@ containing a value of this type.
         public static final int hybrid=0x7f0b0003;
         public static final int imageV=0x7f0b001b;
         public static final int imageView=0x7f0b001e;
-        public static final int imgProduct=0x7f0b0021;
+        public static final int imgProduct=0x7f0b0022;
         public static final int listView=0x7f0b001a;
         public static final int map=0x7f0b001c;
         public static final int match_parent=0x7f0b000e;
-        public static final int mnuScan=0x7f0b0027;
+        public static final int mnuScan=0x7f0b0028;
         public static final int monochrome=0x7f0b0016;
         public static final int none=0x7f0b0002;
         public static final int normal=0x7f0b0004;
@@ -462,10 +463,10 @@ containing a value of this type.
         public static final int strict_sandbox=0x7f0b000b;
         public static final int terrain=0x7f0b0006;
         public static final int textView=0x7f0b001f;
-        public static final int txtOfferBig=0x7f0b0024;
-        public static final int txtOfferInfo=0x7f0b0026;
-        public static final int txtOfferMedium=0x7f0b0025;
-        public static final int txtProductDescription=0x7f0b0022;
+        public static final int txtOfferBig=0x7f0b0025;
+        public static final int txtOfferInfo=0x7f0b0027;
+        public static final int txtOfferMedium=0x7f0b0026;
+        public static final int txtProductDescription=0x7f0b0023;
         public static final int txtState=0x7f0b0017;
         public static final int wrap_content=0x7f0b000f;
     }
