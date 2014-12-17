@@ -35,6 +35,10 @@
         <activity
             android:name=".MonumentActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".MapsActivity"
+            android:screenOrientation="portrait" />
     
         <service android:enabled="true"
         android:exported="true"

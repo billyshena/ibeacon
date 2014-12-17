@@ -33,6 +33,9 @@
         <activity
             android:name="com.easibeacon.examples.shop.MonumentActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.easibeacon.examples.shop.MapsActivity"
+            android:screenOrientation="portrait" />
 
         <service
             android:name="com.radiusnetworks.ibeacon.service.IBeaconService"
@@ -57,6 +60,9 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBZG8lq0_hld5b95ZF_ppTw6CiePESVc0g" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

@@ -38,7 +38,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.easibeacon.examples.shop.protocol.IBeacon;
 import com.easibeacon.examples.shop.protocol.IBeaconListener;
@@ -227,9 +226,9 @@ public class MainActivity extends Activity implements IBeaconListener{
                                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                                     // TODO: CALL THE MapActivity
                                     String itemName = (String) lv.getItemAtPosition(i);
-                                    Toast.makeText(getApplicationContext(), "This is a text where name= " +itemName, Toast.LENGTH_SHORT).show();
-
-
+                                    Intent map = new Intent(getApplicationContext(), MapsActivity.class);
+                                    map.putExtra("id", itemName);
+                                    startActivity(map);
                                 }
                             });
                         } catch (Throwable t) {
