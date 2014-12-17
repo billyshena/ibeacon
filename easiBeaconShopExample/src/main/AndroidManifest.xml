@@ -13,6 +13,8 @@
      <uses-permission android:name="android.permission.BLUETOOTH"/>
 	 <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
      <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>>
 
     <application
         android:allowBackup="true"
@@ -46,6 +48,10 @@
             <action android:name="com.example.ibeaconmonitor.DID_MONITORING" />
         </intent-filter>
     </service>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyBZG8lq0_hld5b95ZF_ppTw6CiePESVc0g"/>
     </application>
 
 </manifest>

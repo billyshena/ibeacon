@@ -23,11 +23,12 @@ public final class R {
         public static final int ic_action_search=0x7f020005;
         public static final int ic_launcher=0x7f020006;
         public static final int logo_example=0x7f020007;
-        public static final int offer1=0x7f020008;
-        public static final int offer2=0x7f020009;
-        public static final int offer3=0x7f02000a;
-        public static final int offer4=0x7f02000b;
-        public static final int travelr=0x7f02000c;
+        public static final int notification=0x7f020008;
+        public static final int offer1=0x7f020009;
+        public static final int offer2=0x7f02000a;
+        public static final int offer3=0x7f02000b;
+        public static final int offer4=0x7f02000c;
+        public static final int travelr=0x7f02000d;
     }
     public static final class id {
         public static final int RelativeLayout3=0x7f080007;
@@ -45,7 +46,8 @@ public final class R {
     }
     public static final class layout {
         public static final int activity_listview=0x7f030000;
-        public static final int offer_list_item=0x7f030001;
+        public static final int maps_activity=0x7f030001;
+        public static final int offer_list_item=0x7f030002;
     }
     public static final class menu {
         public static final int main=0x7f070000;

@@ -1,5 +1,6 @@
 {
-	"monuments": [{
+	"monuments": [
+	{
 		"id": 1,
 		"major": 1,
 		"minor": 1,
@@ -10,16 +11,7 @@
 	},
 
 	{
-	    "id": 1,
-	    "major": 1,
-	    "minor": 1,
-	    "name": "Maison",
-	    "latitude": 48.8520127,
-	    "longitude": 2.423075199999971
-	},
-
-	{
-		"id": 1,
+		"id": 2,
 		"major": 2,
 		"minor": 1,
 		"name": "Musée du Louvre",
@@ -30,7 +22,7 @@
 
 
 	{
-		"id": 1,
+		"id": 3,
 		"major": 1,
 		"minor": 1,
 		"name": "Sacré Coeur",
@@ -41,7 +33,7 @@
 
 
 	{
-		"id": 1,
+		"id": 4,
 		"major": 1,
 		"minor": 1,
 		"name": "Invalides",

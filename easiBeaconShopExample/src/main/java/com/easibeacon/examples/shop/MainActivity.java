@@ -22,18 +22,23 @@
 package com.easibeacon.examples.shop;
 
 import android.app.Activity;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.easibeacon.examples.shop.protocol.IBeacon;
 import com.easibeacon.examples.shop.protocol.IBeaconListener;
@@ -79,6 +84,13 @@ public class MainActivity extends Activity implements IBeaconListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_listview);
 
+        // NOTIF
+
+
+        Log.d("DONE", "HERE");
+
+        //END NOTIF
+
 		if(_offers == null)
 			_offers = new ArrayList<Offer>();
 
@@ -106,7 +118,7 @@ public class MainActivity extends Activity implements IBeaconListener{
 			}
 		};	
 		Timer timer = new Timer();
-		timer.scheduleAtFixedRate(searchIbeaconTask, 1000, 5000);
+		timer.scheduleAtFixedRate(searchIbeaconTask, 1000, 10000);
 		
 	}
 
@@ -210,24 +222,50 @@ public class MainActivity extends Activity implements IBeaconListener{
                                 monumentLoc.setLatitude(monumentObject.getDouble("latitude"));
                                 monumentLoc.setLongitude(monumentObject.getDouble("longitude"));
                                 distance = myPosition.distanceTo(monumentLoc);
-                                results.add(monumentObject.getString("name") + " " + "(" + distance / 1000 + ")");
-
-                                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
-                                        getApplicationContext(),
-                                        android.R.layout.simple_list_item_1,
-                                        results );
-                                lv.setAdapter(arrayAdapter);
+                                results.add(monumentObject.getInt("id") + "." + monumentObject.getString("name") + " " + "(" + distance / 1000 + "km )");
                             }
+                            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                                    getApplicationContext(),
+                                    android.R.layout.simple_list_item_1,
+                                    results );
+                            lv.setAdapter(arrayAdapter);
+
+                            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                    // TODO: CALL THE MapActivity
+                                    String itemName = (String) lv.getItemAtPosition(i);
+                                    Toast.makeText(getApplicationContext(), "This is a text where name= " +itemName, Toast.LENGTH_SHORT).show();
+
+
+                                    NotificationCompat.Builder mBuilder =
+                                            new NotificationCompat.Builder(getApplicationContext())
+                                                    .setSmallIcon(R.drawable.notification)
+                                                    .setContentTitle("TRAVELR")
+                                                    .setContentText("Hello World!");
+
+                                    Intent resultIntent = new Intent(getApplicationContext(), MapsActivity.class);
+
+                                    PendingIntent resultPendingIntent =
+                                            PendingIntent.getActivity(
+                                                    getApplicationContext(),
+                                                    0,
+                                                    resultIntent,
+                                                    PendingIntent.FLAG_UPDATE_CURRENT
+                                            );
+                                    mBuilder.setContentIntent(resultPendingIntent);
+
+                                    int mNotificationId = 001;
+                                    NotificationManager mNotifyMgr =
+                                            (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                                    mNotifyMgr.notify(mNotificationId, mBuilder.build());
+                                }
+                            });
                         } catch (Throwable t) {
                             Log.e("My App", "Could not parse malformed JSON: \"" + json);
                         }
-
-                        // \n is for new line
-                        //Toast.makeText(getApplicationContext(), "Your JSON FILE " + json, Toast.LENGTH_LONG).show();
-                        //Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
-                    }else{
-                        // can't get location
-                        // GPS or Network is not enabled
+                    }
+                    else{
                         // Ask user to enable GPS/network in settings
                         gps.showSettingsAlert();
                     }
@@ -299,6 +337,8 @@ public class MainActivity extends Activity implements IBeaconListener{
         return json;
 
     }
+
+
 
 }	
 
