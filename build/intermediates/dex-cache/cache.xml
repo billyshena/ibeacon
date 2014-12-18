@@ -6,7 +6,7 @@
         jar="/Users/bshen/Desktop/Travelr1/sdk/build/libs/sdk.jar"
         jumboMode="false"
         revision="21.0.0"
-        sha1="60af2b068d56b57b14f178325bf9b3998db50abf"/>
+        sha1="ecf0de71903c5254f690676f35d02238f7442a82"/>
     <item
         dex="/Users/bshen/Desktop/Travelr1/easiBeaconShopExample/build/intermediates/pre-dexed/debug/classes-41d105fe7737486d870c96cdaa59ae84298e7d5a.jar"
         jar="/Users/bshen/Desktop/Travelr1/easiBeaconShopExample/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/classes.jar"

@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +38,6 @@ public class AddTrackActivity extends Activity {
 
         SharedPreferences prefs = getSharedPreferences(NAME, MODE_PRIVATE);
         String restoredText = prefs.getString("name", null);
-        Toast.makeText(getApplicationContext(), "this is restored text = "  + restoredText, Toast.LENGTH_LONG).show();
 
         // onClick => add a new Track to the ListView
         addTrack.setOnClickListener(new View.OnClickListener() {

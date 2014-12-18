@@ -26,20 +26,25 @@
         android:indeterminate="true"
         android:visibility="gone"/>
 
-    <ListView
-        android:id="@+id/cardListView" 
-       	android:layout_marginLeft="16dp"
-   		android:layout_marginRight="16dp"
+    <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="141dp"
-        android:divider="@null"
-        android:dividerHeight="10dp">
-    </ListView>
+        android:layout_height="181dp"
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:id="@+id/imageView3"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/user" />
+    </RelativeLayout>
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/listView" />
+        android:layout_height="328dp"
+        android:id="@+id/listView"
+        android:layout_marginTop="60dp" />
 
 
 </LinearLayout><!-- From: file:/Users/bshen/Desktop/Travelr1/easiBeaconShopExample/src/main/res/layout/activity_listview.xml -->

@@ -82,18 +82,9 @@ public class MainActivity extends Activity implements IBeaconListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_listview);
 
-		if(_offers == null)
-			_offers = new ArrayList<Offer>();
-
-		arrayAdapter = new OffersArrayAdapter(
-                this, 
-                _offers);
-		ListView list = (ListView) findViewById(R.id.cardListView);
-		list.setAdapter(arrayAdapter);
-		
 		_barSearchBeacons = (ProgressBar) findViewById(R.id.barSearchBeacons);
 		_txtState = (TextView) findViewById(R.id.txtState);
-		
+
 		ibp = IBeaconProtocol.getInstance(this);
 		ibp.setListener(this);
 		
@@ -109,7 +100,7 @@ public class MainActivity extends Activity implements IBeaconListener{
 			}
 		};	
 		Timer timer = new Timer();
-		timer.scheduleAtFixedRate(searchIbeaconTask, 1000, 5000);
+		timer.scheduleAtFixedRate(searchIbeaconTask, 1000, 2000);
 		
 	}
 
@@ -131,6 +122,10 @@ public class MainActivity extends Activity implements IBeaconListener{
 		if(item.getItemId() == R.id.mnuScan){
 			scanBeacons();
 		}
+        else if(item.getItemId() == R.id.profile){
+            Intent profile = new Intent(this, AddTrackActivity.class);
+            startActivity(profile);
+        }
 		// TODO Auto-generated method stub
 		return super.onMenuItemSelected(featureId, item);
 	}
@@ -179,11 +174,9 @@ public class MainActivity extends Activity implements IBeaconListener{
 					// Will enter region, probably
 				}else if (state == IBeaconProtocol.SEARCH_END_EMPTY){
 					_barSearchBeacons.setVisibility(View.GONE);
-					_txtState.setText(R.string.msg_no_ibeacons_found);
+					//_txtState.setText(R.string.msg_no_ibeacons_found);
 					//_offers.clear();
-					arrayAdapter.notifyDataSetChanged();
-                    Log.i("NOTHING", "FOUND");
-
+					//arrayAdapter.notifyDataSetChanged();
 
                     // Get the JSON file as a String
                     String json = loadJSONFromAsset();
@@ -249,7 +242,7 @@ public class MainActivity extends Activity implements IBeaconListener{
 	@Override
 	public void enterRegion(IBeacon ibeacon) {
 		Log.i("Shop","Enter region: " + ibeacon.toString());
-		_offers.clear();
+		//_offers.clear();
 		if(ibeacon.isSameRegionAs(_sampleIBeacon1)){
             createNotification("Tour eiffel", "Voir plus d'informations", "1");
 			//_offers.add(Offer.getSampleOffer1());
@@ -336,7 +329,7 @@ public class MainActivity extends Activity implements IBeaconListener{
         NotificationManager mNotifyMgr =
                 (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         mNotifyMgr.notify(Integer.parseInt(monumentId), mBuilder.build());
-        arrayAdapter.notifyDataSetChanged();
+        //arrayAdapter.notifyDataSetChanged();
     }
 
 

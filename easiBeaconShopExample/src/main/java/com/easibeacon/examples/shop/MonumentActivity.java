@@ -6,7 +6,6 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -48,9 +47,6 @@ public class MonumentActivity extends Activity {
         }catch (Throwable t) {
             Log.e("My App", "Could not parse malformed JSON: \"" + json);
         }
-
-        Toast.makeText(getApplicationContext(), "MonumentActivity" + extras.getString("id"), Toast.LENGTH_SHORT).show();
-
     }
 
 

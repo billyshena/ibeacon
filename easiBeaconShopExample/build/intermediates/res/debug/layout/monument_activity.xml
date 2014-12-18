@@ -27,7 +27,7 @@
         android:layout_alignParentTop="false"
         android:textSize="14dp" />
 
-    <Button
+    <!--<Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="ENREGISTRER"
@@ -38,6 +38,6 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:textColor="#FFFFFF"
-        android:background="#4CD964" />
+        android:background="#4CD964" /> -->
 </RelativeLayout>
 <!-- From: file:/Users/bshen/Desktop/Travelr1/easiBeaconShopExample/src/main/res/layout/monument_activity.xml -->
