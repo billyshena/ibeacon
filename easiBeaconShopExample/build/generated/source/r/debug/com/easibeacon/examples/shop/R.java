@@ -202,6 +202,17 @@ containing a value of this type.
 </table>
          */
         public static final int imageAspectRatioAdjust=0x7f010003;
+        /** <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>left</code></td><td>0</td><td></td></tr>
+<tr><td><code>right</code></td><td>1</td><td></td></tr>
+</table>
+         */
+        public static final int labelPosition=0x7f010026;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -268,6 +279,14 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int maskedWalletDetailsTextAppearance=0x7f01001e;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int showText=0x7f010025;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -342,6 +361,7 @@ containing a value of this type.
         public static final int zOrderOnTop=0x7f010014;
     }
     public static final class color {
+        public static final int blueBackground=0x7f050017;
         public static final int common_action_bar_splitter=0x7f050000;
         public static final int common_signin_btn_dark_text_default=0x7f050001;
         public static final int common_signin_btn_dark_text_disabled=0x7f050002;
@@ -352,8 +372,8 @@ containing a value of this type.
         public static final int common_signin_btn_light_text_disabled=0x7f050007;
         public static final int common_signin_btn_light_text_focused=0x7f050008;
         public static final int common_signin_btn_light_text_pressed=0x7f050009;
-        public static final int common_signin_btn_text_dark=0x7f050017;
-        public static final int common_signin_btn_text_light=0x7f050018;
+        public static final int common_signin_btn_text_dark=0x7f050019;
+        public static final int common_signin_btn_text_light=0x7f05001a;
         public static final int wallet_bright_foreground_disabled_holo_light=0x7f05000a;
         public static final int wallet_bright_foreground_holo_dark=0x7f05000b;
         public static final int wallet_bright_foreground_holo_light=0x7f05000c;
@@ -367,8 +387,9 @@ containing a value of this type.
         public static final int wallet_hint_foreground_holo_light=0x7f050014;
         public static final int wallet_holo_blue_light=0x7f050015;
         public static final int wallet_link_text_light=0x7f050016;
-        public static final int wallet_primary_text_holo_light=0x7f050019;
-        public static final int wallet_secondary_text_holo_dark=0x7f05001a;
+        public static final int wallet_primary_text_holo_light=0x7f05001b;
+        public static final int wallet_secondary_text_holo_dark=0x7f05001c;
+        public static final int whiteBeige=0x7f050018;
     }
     public static final class dimen {
         public static final int activity_horizontal_margin=0x7f060000;
@@ -439,57 +460,58 @@ containing a value of this type.
         public static final int user=0x7f02003d;
     }
     public static final class id {
-        public static final int RelativeLayout3=0x7f0b002e;
+        public static final int RelativeLayout3=0x7f0b002f;
         public static final int adjust_height=0x7f0b0000;
         public static final int adjust_width=0x7f0b0001;
-        public static final int barLoadProductImage=0x7f0b002b;
-        public static final int barSearchBeacons=0x7f0b0018;
+        public static final int barLoadProductImage=0x7f0b002c;
+        public static final int barSearchBeacons=0x7f0b001a;
         public static final int book_now=0x7f0b0010;
-        public static final int button=0x7f0b0028;
+        public static final int button=0x7f0b002a;
         public static final int buyButton=0x7f0b000c;
         public static final int buy_now=0x7f0b0011;
         public static final int buy_with_google=0x7f0b0012;
         public static final int classic=0x7f0b0014;
         public static final int donate_with_google=0x7f0b0013;
-        public static final int duration=0x7f0b0024;
-        public static final int editText=0x7f0b001d;
+        public static final int duration=0x7f0b0026;
+        public static final int editText=0x7f0b001f;
         public static final int grayscale=0x7f0b0015;
         public static final int holo_dark=0x7f0b0007;
         public static final int holo_light=0x7f0b0008;
         public static final int hybrid=0x7f0b0003;
-        public static final int imageV=0x7f0b0026;
-        public static final int imageView=0x7f0b0029;
-        public static final int imageView2=0x7f0b0025;
-        public static final int imageView3=0x7f0b0019;
-        public static final int imgProduct=0x7f0b002c;
-        public static final int linear=0x7f0b001b;
-        public static final int linearLayout=0x7f0b001c;
-        public static final int listView=0x7f0b001a;
-        public static final int listView2=0x7f0b001f;
-        public static final int list_image=0x7f0b0022;
-        public static final int map=0x7f0b0027;
+        public static final int imageV=0x7f0b0028;
+        public static final int imageView=0x7f0b001b;
+        public static final int imageView2=0x7f0b0027;
+        public static final int imgProduct=0x7f0b002d;
+        public static final int left=0x7f0b0017;
+        public static final int linear=0x7f0b001d;
+        public static final int linearLayout=0x7f0b001e;
+        public static final int listView=0x7f0b001c;
+        public static final int listView2=0x7f0b0021;
+        public static final int list_image=0x7f0b0024;
+        public static final int map=0x7f0b0029;
         public static final int match_parent=0x7f0b000e;
-        public static final int mnuScan=0x7f0b0032;
+        public static final int mnuScan=0x7f0b0033;
         public static final int monochrome=0x7f0b0016;
         public static final int none=0x7f0b0002;
         public static final int normal=0x7f0b0004;
         public static final int production=0x7f0b0009;
-        public static final int profile=0x7f0b0033;
+        public static final int profile=0x7f0b0034;
+        public static final int right=0x7f0b0018;
         public static final int sandbox=0x7f0b000a;
         public static final int satellite=0x7f0b0005;
         public static final int selectionDetails=0x7f0b000d;
         public static final int strict_sandbox=0x7f0b000b;
         public static final int terrain=0x7f0b0006;
-        public static final int textView=0x7f0b002a;
-        public static final int textView4=0x7f0b0020;
-        public static final int thumbnail=0x7f0b0021;
-        public static final int title=0x7f0b0023;
-        public static final int track=0x7f0b001e;
-        public static final int txtOfferBig=0x7f0b002f;
-        public static final int txtOfferInfo=0x7f0b0031;
-        public static final int txtOfferMedium=0x7f0b0030;
-        public static final int txtProductDescription=0x7f0b002d;
-        public static final int txtState=0x7f0b0017;
+        public static final int textView=0x7f0b002b;
+        public static final int textView4=0x7f0b0022;
+        public static final int thumbnail=0x7f0b0023;
+        public static final int title=0x7f0b0025;
+        public static final int track=0x7f0b0020;
+        public static final int txtOfferBig=0x7f0b0030;
+        public static final int txtOfferInfo=0x7f0b0032;
+        public static final int txtOfferMedium=0x7f0b0031;
+        public static final int txtProductDescription=0x7f0b002e;
+        public static final int txtState=0x7f0b0019;
         public static final int wrap_content=0x7f0b000f;
     }
     public static final class integer {
@@ -971,6 +993,52 @@ containing a value of this type.
           @attr name com.easibeacon.examples.shop:zOrderOnTop
         */
         public static final int MapAttrs_zOrderOnTop = 14;
+        /** Attributes that can be used with a RadarImageView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #RadarImageView_labelPosition com.easibeacon.examples.shop:labelPosition}</code></td><td></td></tr>
+           <tr><td><code>{@link #RadarImageView_showText com.easibeacon.examples.shop:showText}</code></td><td></td></tr>
+           </table>
+           @see #RadarImageView_labelPosition
+           @see #RadarImageView_showText
+         */
+        public static final int[] RadarImageView = {
+            0x7f010025, 0x7f010026
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.easibeacon.examples.shop.R.attr#labelPosition}
+          attribute's value can be found in the {@link #RadarImageView} array.
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>left</code></td><td>0</td><td></td></tr>
+<tr><td><code>right</code></td><td>1</td><td></td></tr>
+</table>
+          @attr name com.easibeacon.examples.shop:labelPosition
+        */
+        public static final int RadarImageView_labelPosition = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.easibeacon.examples.shop.R.attr#showText}
+          attribute's value can be found in the {@link #RadarImageView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.easibeacon.examples.shop:showText
+        */
+        public static final int RadarImageView_showText = 0;
         /** Attributes that can be used with a WalletFragmentOptions.
            <p>Includes the following attributes:</p>
            <table>

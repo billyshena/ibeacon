@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -50,6 +51,9 @@ public class AddTrackActivity extends Activity {
                 SharedPreferences.Editor editor = getSharedPreferences(NAME, MODE_PRIVATE).edit();
                 editor.putString("name", et.getText().toString());
                 editor.apply();
+                et.setText("");
+                InputMethodManager inputMethodManager = (InputMethodManager)  AddTrackActivity.this.getSystemService(Activity.INPUT_METHOD_SERVICE);
+                inputMethodManager.hideSoftInputFromWindow(AddTrackActivity.this.getCurrentFocus().getWindowToken(), 0);
 
             }
         });

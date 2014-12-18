@@ -45,7 +45,7 @@
     <!-- From: file:/Users/bshen/Desktop/Travelr1/easiBeaconShopExample/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="action_scan">Scan</string>
-    <string name="app_name">TRAVELR</string>
+    <string name="app_name"/>
     <!-- From: file:/Users/bshen/Desktop/Travelr1/easiBeaconShopExample/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/common_strings.xml -->
     <eat-comment/>
     <string name="common_android_wear_notification_needs_update_text">An application requires an update to the Android Wear app.</string>

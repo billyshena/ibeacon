@@ -65,6 +65,7 @@ public class MainActivity extends Activity implements IBeaconListener{
 	private ProgressBar _barSearchBeacons;
 	private TextView _txtState;
 	private float distance;
+    private Double distanceR;
     private ListView lv;
 	// Configure here your sample UUID
 	public static final byte[] UUID = {(byte)0xA7,(byte)0xAE,(byte)0x2E,(byte)0xB7,(byte)0x1F,(byte)0x00,(byte)0x41,(byte)0x68,(byte)0xB9,(byte)0x9B,(byte)0xA7,(byte)0x49,(byte)0xBA,(byte)0xC1,(byte)0xCA,(byte)0x64};
@@ -206,7 +207,9 @@ public class MainActivity extends Activity implements IBeaconListener{
                                 monumentLoc.setLatitude(monumentObject.getDouble("latitude"));
                                 monumentLoc.setLongitude(monumentObject.getDouble("longitude"));
                                 distance = myPosition.distanceTo(monumentLoc);
-                                results.add(monumentObject.getInt("id") + "." + monumentObject.getString("name") + " " + "(" + distance / 1000 + "km )");
+                                distance = distance / 1000;
+                                distanceR = (double) Math.round(distance * 100.0) / 100.0;
+                                results.add(monumentObject.getInt("id") + "." + monumentObject.getString("name") + " " + "(" + distanceR + "km )");
                             }
                             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                                     getApplicationContext(),
@@ -334,5 +337,6 @@ public class MainActivity extends Activity implements IBeaconListener{
 
 
 
-}	
+}
+
 

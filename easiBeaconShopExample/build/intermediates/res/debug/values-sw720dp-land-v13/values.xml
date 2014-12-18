@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- From: file:/Users/bshen/Desktop/Travelr1/easiBeaconShopExample/src/main/res/values-sw720dp-land/colors.xml -->
+    <eat-comment/>
+    <color name="blueBackground">#2f9ac7</color>
+    <color name="whiteBeige">#f7f7f5</color>
+    <!-- From: file:/Users/bshen/Desktop/Travelr1/easiBeaconShopExample/src/main/res/values-sw720dp-land/attrs.xml -->
+    <eat-comment/>
+    <declare-styleable name="RadarImageView">
+        <attr format="boolean" name="showText"/>
+        <attr format="enum" name="labelPosition">
+            <enum name="left" value="0"/>
+            <enum name="right" value="1"/>
+        </attr>
+    </declare-styleable>
     <!-- From: file:/Users/bshen/Desktop/Travelr1/easiBeaconShopExample/src/main/res/values-sw720dp-land/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">128dp</dimen>

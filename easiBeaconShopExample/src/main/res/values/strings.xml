@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">TRAVELR</string>
+    <string name="app_name"></string>
     <string name="action_scan">Scan</string>
     <string name="msg_no_internet_connection">Cannot connect to the Internet</string>
     <string name="msg_searching_ibeacons">Recherche en cours…</string>
