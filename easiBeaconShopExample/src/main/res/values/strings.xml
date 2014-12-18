@@ -8,5 +8,6 @@
     <string name="msg_downloading_offers">Downloading offer data…</string>
     <string name="msg_no_ibeacons_found">Aucun résultat trouvé.</string>
     <string name="msg_offers_displayed">Résultats disponibles.</string>
+    <string name="username">Nom pour votre parcours</string>
     
 </resources>

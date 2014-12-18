@@ -92,6 +92,9 @@
     <eat-comment/>
     <string name="store_picture_message">"Allow Ad to store image in Picture gallery?"</string>
     <string name="store_picture_title">Save image</string>
+    <!-- From: file:/Users/bshen/Desktop/Travelr1/easiBeaconShopExample/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="username">Nom pour votre parcours</string>
     <!-- From: file:/Users/bshen/Desktop/Travelr1/easiBeaconShopExample/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/wallet_strings.xml -->
     <eat-comment/>
     <string name="wallet_buy_button_place_holder" translation_description="Text on a button that allows a user to make a payment with Google Wallet [CHAR LIMIT=30]">Buy with Google</string>

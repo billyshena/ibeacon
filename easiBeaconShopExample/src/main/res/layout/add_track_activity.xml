@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/linear"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="40dp"
+        android:background="#2F9AC7"
+        android:layout_weight="0.04"
+        android:gravity="center_vertical|center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="MES PARCOURS"
+            android:id="@+id/textView2"
+            android:layout_gravity="center_horizontal|top"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.04">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:minHeight="26dp"
+            android:weightSum="1"
+            android:minWidth="26dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/linearLayout">
+
+            <EditText
+                android:layout_width="252dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="25dp"
+                android:hint="Nouveau parcours..."
+                android:layout_marginRight="10dp"
+                android:layout_weight="0.48" />
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:id="@+id/track"
+                android:src="@drawable/btn"
+                android:layout_marginTop="13dp" />
+
+        </LinearLayout>
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/listView2"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentRight="false"
+            android:divider="#e3e3e2"
+            android:dividerHeight="1dp"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_marginTop="100dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
